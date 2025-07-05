@@ -15,7 +15,7 @@ SMODS.Joker {
     soul_pos = { x = 6, y = 5 },
     cost = 20,
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_negative
+        info_queue[#info_queue+1] = G.P_CENTERS.e_negative_playing_card
     end,
     calculate = function(self, card, context)
         if context.after then

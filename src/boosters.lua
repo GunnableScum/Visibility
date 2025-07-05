@@ -36,9 +36,16 @@ SMODS.Booster{
     kind = "VisibilityPack",
 
     create_card = function(self, card, i)
-        local _types = {}
-        for k, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
-            _types[#_types + 1] = v
+        local _types = get_all_unbanned_consumable_sets()
+        if #_types == 0 then
+            -- What are we supposed to do if there are no unbanned sets?
+            -- Let's just let Jimbo shine
+            return SMODS.create_card({
+                set = "Joker",
+                area = G.pack_cards,
+                skip_materialize = true,
+                key = "j_joker"
+            })
         end
         local type = pseudorandom_element(_types, pseudoseed('bmp'))
         return SMODS.create_card({
@@ -50,7 +57,9 @@ SMODS.Booster{
     end,
     select_card = (G.pack_cards and G.pack_cards.cards and G.pack_cards.highlighted[1].set == "Joker") and "joker" or 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function()
+        return #get_all_unbanned_consumable_sets() ~= 0
+    end
 }
 
 SMODS.Booster{
@@ -75,9 +84,16 @@ SMODS.Booster{
     kind = "VisibilityPack",
 
     create_card = function(self, card, i)
-        local _types = {}
-        for k, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
-            _types[#_types + 1] = v
+        local _types = get_all_unbanned_consumable_sets()
+        if #_types == 0 then
+            -- What are we supposed to do if there are no unbanned sets?
+            -- Let's just let Jimbo shine
+            return SMODS.create_card({
+                set = "Joker",
+                area = G.pack_cards,
+                skip_materialize = true,
+                key = "j_joker"
+            })
         end
         local type = pseudorandom_element(_types, pseudoseed('bmp'))
         return SMODS.create_card({
@@ -89,7 +105,9 @@ SMODS.Booster{
     end,
     select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return #get_all_unbanned_consumable_sets() ~= 0
+    end
 }
 
 SMODS.Booster{
@@ -114,9 +132,16 @@ SMODS.Booster{
     kind = "VisibilityPack",
 
     create_card = function(self, card, i)
-        local _types = {}
-        for k, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
-            _types[#_types + 1] = v
+        local _types = get_all_unbanned_consumable_sets()
+        if #_types == 0 then
+            -- What are we supposed to do if there are no unbanned sets?
+            -- Let's just let Jimbo shine
+            return SMODS.create_card({
+                set = "Joker",
+                area = G.pack_cards,
+                skip_materialize = true,
+                key = "j_joker"
+            })
         end
         local type = pseudorandom_element(_types, pseudoseed('bmp'))
         return SMODS.create_card({
@@ -128,7 +153,9 @@ SMODS.Booster{
     end,
     select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return #get_all_unbanned_consumable_sets() ~= 0
+    end
 }
 
 SMODS.Booster{
@@ -141,7 +168,7 @@ SMODS.Booster{
 
     draw_hand = true,
     config = {
-        extra = 3,
+        extra = 2,
         choose = 1,
     },
 
@@ -165,7 +192,9 @@ SMODS.Booster{
     end,
     --select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return not is_set_banned("Divine")
+    end
 }
 
 SMODS.Booster{
@@ -178,7 +207,7 @@ SMODS.Booster{
 
     draw_hand = true,
     config = {
-        extra = 3,
+        extra = 2,
         choose = 1,
     },
 
@@ -202,7 +231,9 @@ SMODS.Booster{
     end,
     --select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return not is_set_banned("Divine")
+    end
 }
 
 SMODS.Booster{
@@ -215,7 +246,7 @@ SMODS.Booster{
 
     draw_hand = true,
     config = {
-        extra = 5,
+        extra = 4,
         choose = 1,
     },
 
@@ -239,7 +270,9 @@ SMODS.Booster{
     end,
     --select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return not is_set_banned("Divine")
+    end
 }
 
 SMODS.Booster{
@@ -252,7 +285,7 @@ SMODS.Booster{
 
     draw_hand = true,
     config = {
-        extra = 5,
+        extra = 4,
         choose = 2,
     },
 
@@ -277,5 +310,7 @@ SMODS.Booster{
     end,
     --select_card = 'consumeables',
 
-    in_pool = function() return true end
+    in_pool = function() 
+        return not is_set_banned("Divine")
+    end
 }

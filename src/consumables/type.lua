@@ -1,6 +1,6 @@
 SMODS.ConsumableType {
     key = 'Divine',
-    default = 'c_vis_denial',
+    default = 'c_vis_shore',
     collection_rows = { 5, 5 },
     cards = {},
     shop_rate = 3.0,

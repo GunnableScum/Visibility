@@ -30,5 +30,15 @@ SMODS.Joker {
             atomic_bomb:add_to_deck()
             G.jokers:emplace(atomic_bomb)
         end
+    end,
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS }
+        }
     end
 }

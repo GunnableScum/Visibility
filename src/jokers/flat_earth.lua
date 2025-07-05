@@ -16,7 +16,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local hand_level = G.GAME.hands[card.ability.extra.hand_picked] and G.GAME.hands[card.ability.extra.hand_picked].level or 0
         local total = hand_level * card.ability.extra.dollars_per_level
-        return { vars = { card.ability.extra.hand_picked, card.ability.extra.dollars_per_level, hand_level, total } }
+        return { vars = { localize(card.ability.extra.hand_picked, 'poker_hands'), card.ability.extra.dollars_per_level, hand_level, total } }
     end,
 
     update = function (self, card, dt)
@@ -32,7 +32,22 @@ SMODS.Joker {
     end,
 
     calc_dollar_bonus = function(self, card)
-        local full_house_level = G.GAME.hands[card.ability.extra.hand_picked] and G.GAME.hands[card.ability.extra.hand_picked].level or 0
-        return full_house_level > 0 and full_house_level * card.ability.extra.dollars_per_level or nil
+        local hand_level = G.GAME.hands[card.ability.extra.hand_picked] and G.GAME.hands[card.ability.extra.hand_picked].level or 0
+        return hand_level > 0 and hand_level * card.ability.extra.dollars_per_level or nil
+    end,
+
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "dollars" }
+            },
+            text_config = { colour = G.C.GOLD },
+            calc_function = function (card)
+                local hand_level = G.GAME.hands[card.ability.extra.hand_picked] and G.GAME.hands[card.ability.extra.hand_picked].level or 0
+                card.joker_display_values.dollars = hand_level > 0 and hand_level * card.ability.extra.dollars_per_level or 0
+            end
+        }
     end
 }

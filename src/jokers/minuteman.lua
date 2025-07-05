@@ -4,7 +4,7 @@ SMODS.Joker {
     discovered = true,
     blueprint_compat = true,
     rarity = 1,
-    cost = 8,
+    cost = 4,
     atlas = "TextureAtlasJokers",
     config = { extra = { mult = 20 }, },
     credits = {

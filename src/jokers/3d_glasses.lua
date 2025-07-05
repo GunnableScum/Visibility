@@ -27,5 +27,29 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_chips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function (card)
+                local all_red_suits = true
+                for _, playing_card in ipairs(G.hand.cards) do
+                    if not playing_card.highlighted and not playing_card:is_suit('Diamonds', nil, true) and not playing_card:is_suit('Hearts', nil, true) then
+                        all_red_suits = false
+                        break
+                    end
+                end
+                card.joker_display_values.x_chips = all_red_suits and card.ability.extra.xchips or 1
+            end
+        }
     end
 }

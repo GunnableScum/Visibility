@@ -376,7 +376,7 @@ return {
                 name = "Atomic Bomb",
                 text = {
                     "Disables the current boss blind when sold and",
-                    "{C:red}destroys{} {C:attention}all{} random cards in hand"
+                    "{C:red}destroys{} {C:attention}all{} cards in hand"
                 }
             },
             j_vis_alternate = {
@@ -608,6 +608,105 @@ return {
                 },
             },
         },
+        Sleeve = {
+            sleeve_vis_poptart = {  -- "sleeve_" + mod prefix + "_" + sleeve original key
+                name = "Poptart Sleeve",
+                text = { 
+                    "{C:attention}Visibility{} Jokers are",
+                    "{X:blue,C:white}X3{} more likely to appear",
+                    "in the shop" 
+                }
+            },
+            sleeve_vis_poptart_alt = {
+                name = "Poptart Sleeve",
+                text = { 
+                    "{V:1}Divine{} Cards are",
+                    "{X:dark_edition,C:white}X3{} more likely to appear",
+                    "in the shop",
+                }
+            },
+            sleeve_vis_gardening = {
+                name = "Gardening Sleeve",
+                text = { 
+                    "Start run with",
+                    "{C:attention}26 {C:clubs}Clubs{} and",
+                    "{C:attention}26 {C:diamonds}Diamonds{} in deck" 
+                }
+            },
+            sleeve_vis_gardening_alt = {
+                name = "Gardening Sleeve",
+                text = { 
+                    "All {C:spades}Spades{} cards will get",
+                    "converted to {C:clubs}Clubs{} and",
+                    "all {C:hearts}Hearts{} cards will get",
+                    "converted to {C:diamonds}Diamonds{}",
+                }
+            },
+            sleeve_vis_gardening_checkered = {
+                name = "Gardening Sleeve",
+                text = {
+                    "Start run with",
+                    "{C:attention}26 {C:clubs}Clubs{} and",
+                    "{C:attention}26 {C:hearts}Hearts{} in deck"
+                }
+            },
+            sleeve_casl_checkered_gardening = { --For checkered sleeve with gardening deck
+                name = "Checkered Sleeve",
+                text = { 
+                    "Start run with",
+                    "{C:attention}26 {C:spades}Spades{} and",
+                    "{C:attention}26 {C:diamonds}Diamonds{} in deck"
+                }
+            },
+            sleeve_vis_heavenly = {
+                name = "Heavenly Sleeve",
+                text = { 
+                    "Start run with the",
+                    "{V:1,T:v_vis_divine_merchant}#1#{} voucher",
+                    "and a {C:spectral,T:c_vis_pact}#2#{}" 
+                }
+            },
+            sleeve_vis_heavenly_alt = {
+                name = "Heavenly Sleeve",
+                text = { 
+                    "Start run with the",
+                    "{V:1,T:v_vis_divine_tycoon}#1#{} voucher",
+                    "and a second {C:spectral,T:c_vis_pact}#2#{}"
+                }
+            },
+            sleeve_vis_burnt = {
+                name = "Burnt Sleeve",
+                text = { 
+                    "Upgrade the level of",
+                    "the first {C:attention}discarded",
+                    "poker hand each round" 
+                }
+            },
+            sleeve_vis_burnt_alt = {
+                name = "Burnt Sleeve",
+                text = { 
+                    "{C:green}#1# in #2#{} chance to upgrade",
+                    "{C:attention} discarded{} poker hand"
+                }
+            },
+            sleeve_vis_rolling = {
+                name = "Rolling Sleeve",
+                text = { 
+                    "Start run with a",
+                    "{C:attention,T:v_reroll_surplus}#1#{}",
+                    "and a {C:attention,T:v_reroll_glut}#2#{}",
+                    "{C:attention}-1{} Card Slot available",
+                    "in shop" 
+                }
+            },
+            sleeve_vis_rolling_alt = {
+                name = "Rolling Sleeve",
+                text = { 
+                    "{C:attention}+1{} Card Slot",
+                    "available in shop"
+                }
+            }
+        };
         Other={
             p_vis_black_market_normal_1 = {
                 name = 'Black Market Pack',
@@ -816,7 +915,7 @@ return {
                 name="Coupon",
                 text={
                     "Your current reroll cost",
-                    "is {C:attention}halved when used",
+                    "is {C:attention}halved{} when used",
                     "{s:0.7,C:inactive}(Minimum {s:0.7,C:gold}$5{s:0.7,C:inactive})",
                 },
             },
@@ -847,6 +946,14 @@ return {
             },
             c_vis_future = {
                 name = "Future",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                }
+            },
+            c_vis_text = {
+                name = "Text",
                 text = {
                     "Enhances {C:attention}#1#{} selected",
                     "card into a",

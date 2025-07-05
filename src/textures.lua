@@ -77,6 +77,12 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = 'TextureAtlasSleeves',
+    path = 'TextureAtlasSleeves.png',
+    px = 73,
+    py = 95
+})
+SMODS.Atlas({
 	key = "modicon",
 	path = "vis_icon.png",
 	px = 32,

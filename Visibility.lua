@@ -19,7 +19,6 @@ local joker_list = {
     "3d_glasses",
     "biker",
     "poker_face",
-    "garrab",
     "sd_card",
     "crystal_geode",
     "atomic_bomb",
@@ -50,14 +49,15 @@ local joker_list = {
     "handicap_parking",
     "delirious", -- Works mostly, known issue: Texture disappears when loading the run
     "blackbeard",
-    "charlie",
     "impact_frame",
     "russian_roulette",
     "plastic_joker",
     "flat_earth",
     "playing_piece",
     "insomnia",
-    "graffiti"
+    "graffiti",
+    "garrab",
+    "charlie",
 }
 
 -- There's probably a better way to do this, but I have no idea.
@@ -99,11 +99,13 @@ assert(SMODS.load_file('src/vouchers.lua'))()
 assert(SMODS.load_file('src/backs.lua'))()
 assert(SMODS.load_file('src/hooks.lua'))()
 assert(SMODS.load_file('src/seals.lua'))()
+assert(SMODS.load_file('src/sleeves.lua'))()
 assert(SMODS.load_file('src/boosters.lua'))()
 assert(SMODS.load_file('src/objecttypes.lua'))()
 assert(SMODS.load_file('src/hands.lua'))()
 --assert(SMODS.load_file('src/sticker.lua'))()
 assert(SMODS.load_file('src/tags.lua'))()
+assert(SMODS.load_file('src/helper_functions.lua'))()
 
 for _, joker in ipairs(joker_list) do
     local joker_path = 'src/jokers/' .. joker .. '.lua'
@@ -113,6 +115,16 @@ end
 for _, consumable in ipairs(consumables_list) do
     local consumable_path = 'src/consumables/' .. consumable .. '.lua'
     assert(SMODS.load_file(consumable_path))()
+end
+
+
+-- Just in case it doesn't exist on the version the player is on
+SMODS.get_probability_vars = SMODS.get_probability_vars or function(trigger_obj, base_numerator, base_denominator)
+    if not G.jokers then return base_numerator, base_denominator end
+    local additive = SMODS.calculate_context({mod_probability = true, numerator = base_numerator, denominator = base_denominator})
+    additive.numerator = (additive.numerator or base_numerator) * ((G.GAME and G.GAME.probabilities.normal or 1) / (2 ^ #SMODS.find_card('j_oops')))
+    local fixed = SMODS.calculate_context({fix_probability = true, numerator = additive.numerator or base_numerator, denominator = additive.denominator or base_denominator})
+    return fixed.numerator or additive.numerator or base_numerator, fixed.denominator or additive.denominator or base_denominator
 end
 
 -- BUGFIX for Talisman 

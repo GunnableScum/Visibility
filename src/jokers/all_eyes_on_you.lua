@@ -10,9 +10,6 @@ SMODS.Joker {
 	atlas = 'TextureAtlasJokers',
 	pos = { x = 7, y = 3 },
 	cost = 4,
-	loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.retriggers, card.ability.extra.cond_discards } }
-	end,
 	calculate = function(self, card, context)
         local spawn_tarot = 0
 		if context.remove_playing_cards and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -44,5 +41,27 @@ SMODS.Joker {
                 colour = G.C.PURPLE
             }
         end
+    end,
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "tarot_count", retrigger_type = "mult" }
+            },
+            reminder_text = {
+                { text = "(on destroy)"}
+            },
+            text_config = { colour = G.C.PURPLE },
+            reminder_text_config = { scale = 0.3, colour = G.C.GREY },
+            calc_function = function (card)
+                card.joker_display_values.tarot_count = 0
+                for k, v in pairs(G.hand.highlighted) do
+                    if v:get_id() == 9 or v:get_id() == 8 or v:get_id() == 7 then
+                        card.joker_display_values.tarot_count = card.joker_display_values.tarot_count + 1
+                    end
+                end
+            end
+        }
     end
 }

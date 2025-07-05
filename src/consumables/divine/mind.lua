@@ -55,7 +55,6 @@ SMODS.Consumable {
         delay(0.6)
     end,
     can_use = function(self, card)
-        return G.consumeables.config.card_limit > #G.consumeables.cards and G.GAME.last_divine and
-            G.GAME.last_divine ~= 'c_vis_mind'
+        return G.GAME.last_divine and G.GAME.last_divine ~= 'c_vis_mind'
     end
 }

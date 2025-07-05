@@ -25,5 +25,25 @@ SMODS.Joker {
                 mult = card.ability.extra.mult
             }
         end
+    end,
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult"}
+            },
+            reminder_text = {
+                { text = "-" },
+                { ref_table = "card.ability.extra", ref_value = "d_size" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text_config = { scale = 0.2, colour = G.C.GREY },
+            calc_function = function (card)
+                card.joker_display_values.localized_text = localize("k_hud_discards") 
+            end
+        }
     end
 }

@@ -56,6 +56,6 @@ SMODS.Consumable {
         delay(0.6)
     end,
     can_use = function(self, card)
-        return G.consumeables.config.card_limit > #G.consumeables.cards and G.GAME.last_spectral ~= nil and G.GAME.last_spectral ~= 'c_vis_pact' and G.GAME.last_spectral ~= 'c_soul'
+        return G.GAME.last_spectral and G.GAME.last_spectral ~= 'c_vis_pact'
     end
 }

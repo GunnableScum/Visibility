@@ -60,5 +60,25 @@ SMODS.Joker {
                 end
             }))
         end
+    end,
+    joker_display_def = function (JokerDisplay)
+        --- @type JDJokerDefinition
+        return {
+            calc_function = function(card)
+                local copied_joker, copied_debuff = JokerDisplay.calculate_blueprint_copy(card)
+                card.joker_display_values.blueprint_compat = localize('k_incompatible')
+                JokerDisplay.copy_display(card, copied_joker, copied_debuff)
+            end,
+            blueprint_joker = function (card)
+                for i = 1, #G.jokers.cards do
+                    if G.jokers.cards[i] == card then
+                        if i == 1 then
+                            return nil
+                        end
+                        return G.jokers.cards[i - 1]
+                    end
+                end
+            end,
+        }
     end
 }
