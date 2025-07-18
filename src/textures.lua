@@ -88,3 +88,29 @@ SMODS.Atlas({
 	px = 32,
 	py = 32
 })
+--Atlases for the new suits
+
+SMODS.Atlas({
+	key = "TextureAtlasCardsHc",
+	path = 'TextureAtlasCardsHc.png',
+    px = 71,
+    py = 95
+})
+SMODS.Atlas({
+	key = "TextureAtlasCardsLc",
+	path = 'TextureAtlasCardsLc.png',
+    px = 71,
+    py = 95
+})
+SMODS.Atlas({
+	key = "TextureAtlasSuitsHc",
+	path = 'TextureAtlasSuitsHc.png',
+    px = 18,
+    py = 18
+})
+SMODS.Atlas({
+	key = "TextureAtlasSuitsLc",
+	path = 'TextureAtlasSuitsLc.png',
+    px = 18,
+    py = 18
+})

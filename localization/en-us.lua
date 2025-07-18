@@ -7,14 +7,15 @@ return {
                     "A vanilla(-ish) styled Balatro Mod!",
                     " ",
                     "Main Programmer: GunnableScum",
-                    "Secondary Programmer: InvisibleSides {C:inactive}(He's trying, okay?)",
+                    "Secondary Programmers: InvisibleSides {C:inactive}(He's trying, okay?){}, StickieAnimates",
                     "Art: Monachrome",
-                    " ",
+
                     "Guest Artists:",
                     "- WarpedCloset",
                     "- StickieAnimates",
                     "- SadCube",
-                    " ",
+
+
                     "Idea Contributors:",
                     "- One Punch Idiot",
                     "- LegEaterHK",
@@ -65,9 +66,20 @@ return {
                     "poker hand each round",
                 }
             },
+            b_vis_arcana = {
+                name = "Arcana Deck",
+                text = {
+                    "Start run with no {C:hearts}Hearts{}",
+                    "or {C:clubs}Clubs{} and a set",
+                    "of {V:1}Cups{} and {V:2}Swords{}",
+                    " ",
+                    "Gain a {C:tarot,T:tag_charm}#1#{} after",
+                    "defeating the {C:attention}Boss Blind"
+                }
+            },
         },
         Blind={
-            bl_vis_forge = {
+            bl_vis_boss_forge = {
                 name = "The Forge",
                 text = {
                     "Enhanced cards",
@@ -86,6 +98,20 @@ return {
                 text = {
                     'Debuffs all',
                     '{C:attention}Visibility{} Jokers',
+                }
+            },
+            bl_vis_boss_well = {
+                name = 'The Well',
+                text = {
+                    "All Cup cards",
+                    "are debuffed",
+                }
+            },
+            bl_vis_boss_sheathe = {
+                name = 'The Sheathe',
+                text = {
+                    "All Sword cards",
+                    "are debuffed",
                 }
             },
         },
@@ -562,14 +588,6 @@ return {
                     "{C:inactive}(Currently {X:chips,C:white} X#2# {C:inactive} Chips)",
                 },
             },
-            j_vis_handheld = {
-                name = "Handheld Joker",
-                text = {
-                    "Each played {C:attention}Ace{}",
-                    "gives {X:chips,C:white}X#1#{} Chips",
-                    "when scored",
-                }
-            },
             j_vis_flat_earth = {
                 name = "Flat Earth",
                 text = {
@@ -607,6 +625,39 @@ return {
                     "Scored cards have a {C:green}#1# in #2#{}",
                     "chance to become {C:attention}Notebook Cards"
                 }
+            },
+            j_vis_handheld = {
+                name = "Handheld Joker",
+                text = {
+                    "Each played {C:attention}Ace{}",
+                    "gives {X:chips,C:white}X#1#{} Chips",
+                    "when scored",
+                }
+            },
+            j_vis_slothful = {
+                name = "Slothful Joker",
+                text = {
+                    "Played cards with",
+                    "{V:1}#2#{} suit give {C:mult}+#1#{} Mult",
+                    "and {X:chips,C:white}X#3#{} Chips when scored",
+                },
+            },
+            j_vis_envious = {
+                name = "Envious Joker",
+                text = {
+                    "Played cards with",
+                    "{V:1}#2#{} suit give {C:mult}+#1#{} Mult",
+                    "and {X:chips,C:white}X#3#{} Chips when scored",
+                },
+            },
+            j_smeared = {
+                name = "Smeared Joker",
+                text = {
+                    "{C:hearts}Hearts{}, {C:diamonds}Diamonds{}, and {V:1}Swords",
+                    "count as the same suit,",
+                    "{C:spades}Spades{} and {C:clubs}Clubs{}, and {V:2}Cups",
+                    "count as the same suit",
+                },
             },
         },
         Sleeve = {
@@ -997,6 +1048,22 @@ return {
                     "card in your hand",
                 }
             },
+            c_vis_panopticon = {
+                name = "Panopticon",
+                text = {
+                    "Converts up to",
+                    "{C:attention}#1#{} selected cards",
+                    "to {V:1}#2#{}",
+                },
+            },
+            c_vis_smith = {
+                name = "Smith",
+                text = {
+                    "Converts up to",
+                    "{C:attention}#1#{} selected cards",
+                    "to {V:1}#2#{}",
+                },
+            },
         },
         Stake={},
         Tag={
@@ -1125,8 +1192,14 @@ return {
         },
         quips={},
         ranks={},
-        suits_plural={},
-        suits_singular={},
+        suits_plural={
+            ["vis_Cups"]= "Cups",
+            ["vis_Swords"]= "Swords",
+        },
+        suits_singular={
+            ["vis_Cups"]= "Cup",
+            ["vis_Swords"]= "Sword",
+        },
         tutorial={},
         v_dictionary={
             k_plus_x_tarot="+#1# Tarot",

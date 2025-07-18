@@ -4,8 +4,11 @@
 ---
 SMODS.ObjectType({
 	key = "Food",
-	default = "j_reserved_parking",
-	cards = {},
+	default = "j_diet_cola", --make the default something that you sell to get less value from clogging the pool
+	cards = {
+				["j_vis_creamer"] = true,
+				["j_vis_yo_gurt"] = true, --gurt: yo
+			},
 	inject = function(self)
 		SMODS.ObjectType.inject(self)
 		-- insert base game food jokers
@@ -18,6 +21,7 @@ SMODS.ObjectType({
 		self:inject_card(G.P_CENTERS.j_ramen)
 		self:inject_card(G.P_CENTERS.j_selzer)
 		self:inject_card(G.P_CENTERS.j_egg)
+	
 	end,
 })
 

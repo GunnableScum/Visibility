@@ -58,6 +58,7 @@ local joker_list = {
     "graffiti",
     "comp_notebook",
     "handheld",
+    "sins",
     "garrab",
     "charlie",
 }
@@ -67,6 +68,8 @@ local consumables_list = {
     "type",
     "divine/mind",
     "divine/constant",
+    "divine/smith",
+    "divine/panopticon",
     "divine/crystal_ball",
     "divine/echo",
     "divine/future",
@@ -95,6 +98,10 @@ SMODS.current_mod.optional_features = {
 }
 
 assert(SMODS.load_file('src/textures.lua'))()
+
+--Initialize the suits before Jokers/Consumables that mention them
+assert(SMODS.load_file('src/suits.lua'))()
+
 assert(SMODS.load_file('src/blinds.lua'))()
 assert(SMODS.load_file('src/editions.lua'))()
 assert(SMODS.load_file('src/enhancements.lua'))()
@@ -119,6 +126,7 @@ for _, consumable in ipairs(consumables_list) do
     local consumable_path = 'src/consumables/' .. consumable .. '.lua'
     assert(SMODS.load_file(consumable_path))()
 end
+
 
 
 -- Just in case it doesn't exist on the version the player is on

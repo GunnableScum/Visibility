@@ -1,7 +1,7 @@
 SMODS.ConsumableType {
     key = 'Divine',
     default = 'c_vis_shore',
-    collection_rows = { 5, 5 },
+    collection_rows = { 6, 6 },
     cards = {},
     shop_rate = 3.0,
     primary_colour = HEX("B4CEFF"),

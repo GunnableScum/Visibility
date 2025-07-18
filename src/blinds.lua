@@ -1,5 +1,4 @@
 SMODS.Blind {
-    name = "boss_transparent",
     key = "boss_transparent",
     dollars = 5,
     mult = 2,
@@ -30,7 +29,6 @@ SMODS.Blind {
 }
 
 SMODS.Blind {
-    name = "boss_flip",
     key = "boss_flip",
     discovered = true,
     dollars = 5,
@@ -58,7 +56,7 @@ SMODS.Blind {
     end
 }
 SMODS.Blind {
-    key = "forge",
+    key = "boss_forge",
     dollars = 5,
     discovered = true,
     atlas = 'TextureAtlasBlinds',
@@ -75,9 +73,33 @@ SMODS.Blind {
                         debuff = true
                     }
                 end
+                
             end
         end
     end
+}
+SMODS.Blind {
+    key = "boss_well",
+    dollars = 5,
+    discovered = true,
+    atlas = 'TextureAtlasBlinds',
+    mult = 2,
+    pos = { x = 0, y = 3 },
+    boss = { min = 1 },
+    boss_colour = HEX("9142ee"),
+    debuff = { suit = "vis_Cups" },
+}
+
+SMODS.Blind {
+    key = "boss_sheathe",
+    dollars = 5,
+    discovered = true,
+    atlas = 'TextureAtlasBlinds',
+    mult = 2,
+    pos = { x = 0, y = 4 },
+    boss = { min = 1 },
+    boss_colour = HEX("6d675a"),
+    debuff = { suit = "vis_Swords" },
 }
 
 

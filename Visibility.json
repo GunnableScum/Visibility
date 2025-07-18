@@ -6,7 +6,7 @@
     "prefix": "vis",
     "main_file": "Visibility.lua",
     "priority": 1,
-    "badge_colour": "bdc3c7",
+    "badge_colour": "b46ae9",
     "dependencies": [
         "Steamodded (>=1.0.0~ALPHA-1225a)"
     ],
