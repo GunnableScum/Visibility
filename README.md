@@ -3,6 +3,11 @@ Visibility is a Balatro Mod with a vanilla(-ish) style, adding **60** new Jokers
 
 This mod is aimed at those who are looking for a fun challenge with new Additions, think this sounds like your kinda thing? Give it a try!
 
+# NOTE
+This repository is now in public domain (under CC0 License) and archived, with approval from the main creators. We thank you for the support and hope you enjoy the mod.
+
+We hope that you can use our assets to create new interesting mods, or even learn Programming.
+
 ## Download Instructions
 ### Method 1 - GitHub Releases
 Head over to the [Releases](https://github.com/GunnableScum/Visibility/releases) page and grab the latest version.
@@ -10,8 +15,8 @@ Head over to the [Releases](https://github.com/GunnableScum/Visibility/releases)
 ### Method 2 - Balatro Mod Manager / bromomethane
 Install the Mod through Balatro Mod Manager or bromomethane, yes we're there too!
 
-## Contributing
-If you do wish to contribute, feel free to open a [Pull Request](https://github.com/GunnableScum/Visibility/pulls)! We appreciate every single bit of help offered to us.
+## ~~Contributing~~
+~~If you do wish to contribute, feel free to open a [Pull Request](https://github.com/GunnableScum/Visibility/pulls)! We appreciate every single bit of help offered to us.~~
 
 ## The Community
 We do have a community Discord Server that you can [join](https://discord.gg/j3nc6UKfzU)!
